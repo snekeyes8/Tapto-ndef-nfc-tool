@@ -1,0 +1,40 @@
+name: Build NDEF Emulator APKs
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+          
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        
+      # These are the exact build commands from the README
+      - name: Build Phone and Watch APKs
+        run: |
+          ./gradlew clean assemblePhoneRelease
+          ./gradlew clean assembleWatchRelease
+          
+      - name: Upload Phone APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: phone-release-apk
+          path: demo/phone/build/outputs/apk/release/*.apk
+
+      - name: Upload Watch APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: watch-release-apk
+          path: demo/watch/build/outputs/apk/release/*.apk
