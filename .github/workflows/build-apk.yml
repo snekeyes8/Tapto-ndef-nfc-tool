@@ -21,19 +21,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
         
-      # Changed from 'assemblePhoneRelease' to 'assemblePhoneDebug'
       - name: Build Phone and Watch APKs
         run: |
           ./gradlew clean assemblePhoneDebug assembleWatchDebug
           
-      - name: Upload Phone APK Artifact
+      - name: Upload Compiled APKs
         uses: actions/upload-artifact@v4
         with:
-          name: phone-debug-apk
-          path: demo/phone/build/outputs/apk/phone/debug/*.apk
-
-      - name: Upload Watch APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: watch-debug-apk
-          path: demo/watch/build/outputs/apk/watch/debug/*.apk
+          name: ndef-emulator-apks
+          path: "**/build/outputs/apk/**/*.apk"
