@@ -46,40 +46,40 @@ class DemoActivity : BaseActivity() {
         }
 
         buttonUrlYoutube.setOnClickListener {
-            ndefEmulation.currentEmulatedNdefData = UriNdefData("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+            ndefEmulation.currentEmulatedNdefData = UriNdefData("https://youtube.com/shorts/RayUeVMzYG4")
             toast("Youtube URL")
         }
         buttonUriYoutube.setOnClickListener {
-            ndefEmulation.currentEmulatedNdefData = UriNdefData("vnd.youtube://www.youtube.com/watch?v=dQw4w9WgXcQ")
+            ndefEmulation.currentEmulatedNdefData = UriNdefData("vnd.youtube://www.youtube.com/watch?v=JUMK-jQiyd0")
             toast("Youtube URI")
         }
         buttonUrlWhatsApp.setOnClickListener {
-            ndefEmulation.currentEmulatedNdefData = UriNdefData("https://wa.me/79123456789")
+            ndefEmulation.currentEmulatedNdefData = UriNdefData("https://wa.me/9613721827")
             toast("WhatsApp")
         }
         buttonUrlTelegram.setOnClickListener {
-            ndefEmulation.currentEmulatedNdefData = UriNdefData("tg://msg?to=+79123456789")
+            ndefEmulation.currentEmulatedNdefData = TextNdefData("Tapto Was here")
             toast("Telegram")
         }
 
         buttonText.setOnClickListener {
-            ndefEmulation.currentEmulatedNdefData = TextNdefData("Whiskey Tango Foxtrot")
+            ndefEmulation.currentEmulatedNdefData = TextNdefData("ye bro")
             toast("Text")
         }
         buttonGeo.setOnClickListener {
-            ndefEmulation.currentEmulatedNdefData = LocationNdefData(59.940825, 30.410988)
+            ndefEmulation.currentEmulatedNdefData = LocationNdefData(34.0027854311375, 35.647902198449344)
             toast("Location")
         }
         buttonWifi.setOnClickListener {
-            ndefEmulation.currentEmulatedNdefData = WifiNetworkNdefData("TestWifi", WifiNetworkNdefDataProtectionType.PASSWORD, "TestWifiPassword")
+            ndefEmulation.currentEmulatedNdefData = WifiNetworkNdefData("Jounieh Living", WifiNetworkNdefDataProtectionType.PASSWORD, "LH836@LH836")
             toast("WiFi")
         }
         buttonContact.setOnClickListener {
             ndefEmulation.currentEmulatedNdefData = ContactNdefData(
-                "Thomas",
-                "Anderson",
-                "+13125550690",
-                "tanderson@metacortex.com",
+                "Abo",
+                "Ali",
+                "+96171305478",
+                "chillguy@gmail.com",
                 Date(53617109910L),
                 "MetaCortex",
                 "Software Engineer",
